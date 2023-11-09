@@ -1,0 +1,133 @@
+Entyland Changelog:
+
+8/22/23
+v0.1 - Alpha Release
+v0.2 - Adds buy land button with gold counter
+v0.3 - Fixes spelling mistake
+v0.4 - Makes it so that you cant have negative gold
+v0.5 - New font for text with efficient code
+v0.6 - Tab development part 1
+v0.7 - Tab development part 2 (shoves all code into tabs for organization)
+v0.8 - Allows you to enter name of your settlement
+v0.9 - Cost of land shown :)
+v0.10 - Color to the button and name box
+
+8/25/23
+v0.11 - Reset inventory tab and created settings tab
+
+8/27/23
+v0.12 - Created external code to clean up file
+v0.13 - Added gold image
+v0.14 - Land variable created
+v0.15 - Local storage implemented
+
+8/29/23
+v0.16 - Resetting storage implemented along with reset safety!
+v0.17 - Shows that the game actually does get reset
+v0.18 - Shows variable info at start
+v0.19 - Confirm button next to settlement name + added reccommended bar!
+
+9/5/23
+v0.20 - Settlement name now saves after clicking Confirm!
+v0.21 - You can now reset name along with game
+v0.22 - Removed Recommended bar!
+v0.23 - Extra details on bottom
+v0.24 - Wood and Stone variables added
+v0.25 - Fixed a land name bug
+v0.26 - Giant bugs fixed + added Expansion tab.
+v0.27 - Ported to jcteam.pages.dev + Got its first tester! [PORTED]
+v0.28 - Iron and toolkit variables added
+v0.29 - Buttons now label price + added Clear land button + removed Expansion tab + added new credit!
+v0.30 - Added the cleared land variable!
+v0.31 - You can now clear land!
+
+9/6/23
+v0.32 - Clearing land now costs toolkits
+v0.33 - Fixed a bug that didnt show accurate toolkit value
+v0.34 - Added logo!
+
+9/7/23
+v0.35 - Gold picture next to variable!
+v0.36 - The news has been added!
+v0.37 - Biomes have been added! You can now collect randomized resources! BIGGEST UPDATE SO FAR! [PORTED]
+v0.38 - Added Build tab and emojis on the tabs to make it look more nice!
+v0.39 - Bug fixed in emojis!
+v0.40 - Allowed user to craft toolkits!
+v0.41 - A better layout installed!
+v0.42 - Credits tab added!
+
+9/8/23
+v0.43 - Edited box layout and organized inventory tab!
+v0.44 - Changed box layout and allowed user to build houses!
+v0.45 - Added people variable layout
+v0.46 - Added people + yt link!
+
+9/9/23
+v0.47 - Added business tab!
+v0.48 - Estimated time variable added
+v0.49 - Gold per min!
+v0.50 - Entyland 0.5 is released! Gold per second! [PORTED]
+v0.51 - 2 bug fixes
+v0.52 - Food variable added!
+
+9/10/23
+v0.53 - Fixed clarification issues!
+v0.54 - Fixed pricing and added farm function!
+v0.55 - Food and farms added!
+v0.56 - People eat food now...scary!
+
+9/11/23
+v0.57 - Added a title (should be easy to identify)
+v0.58 - You now can have a sustainable amount of resources!
+v0.59 - Farms now give you food automatically per second!
+v0.60 - Business tab deleted, Town tab added, moved house and farms variable to town tab!
+
+9/13/23
+v0.61 - People dying test one!
+v0.62 - People now die!
+v0.63 - Fixed a decimal bug
+v0.64 - Changed death time from 10 to less that 10?
+
+9/22/23
+v0.65 - Fixed death bug
+v0.66 - Fixed gold inf bug
+v0.67 - Fixed spelling error [PORTED]
+
+9/23/23
+v0.68 - Fixed decimal problem
+v0.69 - Fixed unlimited land-coin bug
+v0.70 - Fixed farm variable not updating
+v0.71 - Fixed infinite food production bug
+v0.72 - Removed popups! [PORTED]
+
+9/24/23
+v0.73 - Fixed math bug
+
+9/25/23
+v0.74 - Added links to guide and jcteam website
+
+10/4/23
+v0.75 - Added a parralax background
+v0.76 - New logo!
+v0.77 - Added "Surface" music!
+
+10/7/23
+v0.78 - Added new button art!
+v0.79 - Fixed a button bug
+v0.80 - Changed font
+v0.81 - Added font to buttons
+v0.82 - Changed color of font in buttons
+v0.83 - Changed logo again... (also changed color of copyright symbol lol)
+v0.84 - Changed font of tabs
+v0.85 - Added Music and SFX volume sliders
+v0.86 - Made music slider functionable
+v0.87 - Added sound effects for succeeding in stuff.
+v0.88 - Made sfx slider functionable
+v0.89 - Added a fail sound
+v0.90 - Added a favicon
+
+10/8/23
+v0.91 - Changed input style
+
+10/9/23
+v0.92 - Fixed line height problem

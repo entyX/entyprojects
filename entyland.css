@@ -1,0 +1,168 @@
+p, h3 {
+    font-family: Pixelify Sans, serif;
+    font-size: 18px;
+    line-height: 10px;
+}
+
+.tab {
+overflow: hidden;
+border: 1px solid #ccc;
+background-color: #f1f1f1;
+}
+
+.tab button {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+font-size: 17px;
+}
+
+.tab button:hover {
+background-color: #ddd;
+}
+
+.tab button.active {
+background-color: #ccc;
+}
+
+.tabcontent {
+display: none;
+padding: 6px 12px;
+border: 1px solid #ccc;
+border-top: none;
+background-color: rgba(93, 185, 243, 0.6);
+height: 277px;
+}
+
+input {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-width: 2px;
+    text-align: center;
+    background-color: rgb(180, 180, 180);
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 20px;
+    padding: 5px;
+  }
+  
+  a.button {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1px 6px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(45, 200, 231);
+
+    border: 4px outset buttonface;
+    border-color: rgb(45, 200, 231);
+    border-image: initial;
+  }
+
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .bg {
+    /* The image used */
+    background-image: url("bg2.gif");
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+a.button:active { border-style: inset; }
+
+.button{
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Pixelify Sans, serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.slidecontainer {
+  width: 20%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: orange;
+  cursor: pointer;
+}
+
+input.rounded {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 12px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+input.rounded:focus {
+	border-color: #339933;
+}
