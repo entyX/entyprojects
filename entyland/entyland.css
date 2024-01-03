@@ -167,20 +167,4 @@ input.rounded:focus {
 	border-color: #339933;
 }
 
-body {
-  transform-origin: left top;
-  transition: transform 0.5s ease;
-}
-
-@media only screen and (max-width: 767px) {
-  body {
-    transform: rotate(90deg);
-    width: 100vh;
-    overflow-x: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-}
-
 
