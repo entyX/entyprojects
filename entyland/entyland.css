@@ -167,7 +167,7 @@ input.rounded:focus {
 	border-color: #339933;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1440px) {
   body {
     transform: rotate(90deg);
     transform-origin: top left;
