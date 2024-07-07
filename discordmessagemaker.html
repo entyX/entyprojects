@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        .noto-sans-jp-text {
+        font-family: "Noto Sans JP", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 325;
+        font-style: normal;
+        font-size: 16px;
+        }
+        .row {
+        display: flex;
+        }
+        .column {
+        flex: 1;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+        #message {
+        color: rgb(255,255,255);
+        line-height: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 82ch; /* adjust the width to 82 characters */
+        }
+        input {
+            border-radius: 10px;
+            border-width: 4px;
+        }
+    </style>
+  </head>
+  <body style="background-color: #313338;">
+    <main>
+        <h1 class="noto-sans-jp-text" style="text-align: center; color: rgb(255,255,255);font-size: 48px; font-weight: 500;">Discord Message Creator</h1>
+        <p class="noto-sans-jp-text" style="color: rgb(255,255,255); font-weight: 500; text-align: center;">v1.0</p>
+            <div style="text-align: center;">
+                <input id="usernamevalue" placeholder="Enter username...">
+                <input id="messagevalue" placeholder="Enter message...">
+                <input id="timevalue" placeholder="Enter date and time...">
+                <button class="button" role="button" onclick="confirm()">Confirm</button>
+            </div>
+            <br>
+            <br>
+            <div class="row" style="margin-left: 40%;">
+            <input type="file" id="fileInput" style="display: none;">
+            <label for="fileInput">
+                <img id="imagetoreplace" src="enty.png" alt="pfp" width="45" height="45" style="margin-right: 7px;">
+            </label>
+            <div class="column" style="margin-bottom: 2px;">
+            <div class="row">
+                <b id="username" class="noto-sans-jp-text" style="color: rgb(255,255,255); line-height: 5px; font-weight: 450;">enty</b>
+                <b id="time" class="noto-sans-jp-text" style="color: rgb(137, 137, 137); line-height: 5px; font-weight: 450; font-size: 11px; margin-top: 2px; margin-left: 6px;">Today at 12:00 PM</b>
+            </div>
+            <p id="message" class="noto-sans-jp-text" style="color: rgb(255,255,255); line-height: 20px; margin-top: 10px;">Sub to enty!</p>
+            </div>
+            </div>
+            <div style="text-align: center;">
+                <p class="noto-sans-jp-text" style="color: rgb(255,255,255); line-height: 20px;">1: Enter discord username (Ex: "enty")</p>
+                <p class="noto-sans-jp-text" style="color: rgb(255,255,255); line-height: 20px;">2: Enter message (Ex: "hi")</p>
+                <p class="noto-sans-jp-text" style="color: rgb(255,255,255); line-height: 20px;">3: Enter date and time (Ex: "Today at 12:00 PM" or "1/1/24 12:00 PM")</p>
+                <p class="noto-sans-jp-text" style="color: rgb(255,255,255); line-height: 20px;">4: Press submit and change the profile picture</p>
+                <p class="noto-sans-jp-text" style="color: rgb(255,255,255); line-height: 20px;">5: Screenshot the discord message and send it to your friends!</p>
+            </div>
+    </main>
+	<script>
+        function confirm() {
+            document.getElementById("username").innerHTML = document.getElementById("usernamevalue").value;
+            document.getElementById("message").innerHTML = document.getElementById("messagevalue").value;
+            document.getElementById("time").innerHTML = document.getElementById("timevalue").value;
+        }
+        const fileInput = document.getElementById('fileInput');
+  const imageToReplace = document.getElementById('imagetoreplace');
+
+  fileInput.addEventListener('change', (e) => {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      imageToReplace.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
+    </script>
+  </body>
+</html>
