@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Discord Message Maker</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="image/x-icon" href="https://github.com/entyX/entyprojects/edit/main/dmc/enty.png">
+    <link rel="icon" type="image/x-icon" href="enty.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -22,6 +22,10 @@
         @font-face {
           font-family: ggSansSemiBold;
           src: url(ggsanssemibold.ttf);
+        }
+        @font-face {
+          font-family: abcGintoNord;
+          src: url(abcgintonord.otf);
         }
         .row {
         display: flex;
@@ -40,23 +44,55 @@
         overflow-wrap: break-word;
         max-width: 82ch; /* adjust the width to 82 characters */
         }
-        input {
-            border-radius: 10px;
+        input, select, button {
+            border-radius: 40px;
+            border-style: solid;
             border-width: 4px;
+            border-color: rgb(169, 169, 169);
+            background-color: rgb(233, 233, 233);
+            color: rgb(0, 0, 0);
+            font-weight: 200;
+            text-align: center;
+            margin-left: 10px;
         }
         * {
           font-family: ggSans;
+        }
+        label {
+          font-family: ggSansSemiBold;
+          color: #ffffff;
+          margin-top: 4px; 
+          margin-left: 10px;
         }
     </style>
   </head>
   <body style="background-color: #313338;">
     <main>
-        <h1 style="text-align: center; color: rgb(255,255,255);font-size: 48px; font-weight: 500;">Discord Message Creator</h1>
-        <p style="color: rgb(255,255,255); font-weight: 500; text-align: center;">Brought to you by Enty, version 2</p>
+        <h1 style="text-align: center; color: rgb(255,255,255);font-size: 48px; font-weight: 500; font-family: abcGintoNord;">Discord Message Creator</h1>
+        <p style="color: rgb(255,255,255); font-weight: 500; text-align: center; font-family: abcGintoNord; text-shadow:rgb(255, 255, 255);">Brought to you by Enty, version 3</p>
             <div style="text-align: center;">
-                <input id="usernamevalue" placeholder="Enter username...">
-                <input id="messagevalue" placeholder="Enter message...">
-                <input id="timevalue" placeholder="Enter date and time...">
+              <div class="row" style="justify-content: center;">
+                <label>Enter Username:</label>
+                <input id="usernamevalue" placeholder="Ex: 'enty'">
+                <label>Pick Username Color:</label>
+                <input type="color" id="color" placeholder="Enter color..." style="height: 30px; width: 60px; margin-left: 10px; border-width: 0px; background-color: rgba(255,255,255,0); " onchange="updateUsernameColor(this.value)">
+              </div>
+              <br>
+              <div class="row" style="justify-content: center;">
+                <label>Enter Date:</label>
+                <input id="datevalue" placeholder="Ex: '1/1/24' or 'Today at'">
+                <label>Enter Time:</label>
+                <input id="timevalue" placeholder="Ex: '12:00 PM'">
+              </div>
+              <br>
+              <div class="row" style="justify-content: center;">
+                <label>Enter Message:</label>
+              </div>
+              <br>
+              <div class="row" style="justify-content: center;">
+                <textarea id="messagevalue" placeholder="Enter message..." style="width: 500px;"></textarea>
+              </div>
+              <p style="color: rgb(255,255,255); line-height: 20px;">Tip: Change the profile picture by clicking on it below!</p>
                 <button class="button" role="button" onclick="confirm()">Confirm</button>
             </div>
             <br>
@@ -68,24 +104,22 @@
             </label>
             <div class="column" style="margin-bottom: 2px;">
             <div class="row">
-                <b id="username" style="color: #caccce; line-height: 5px; font-family: ggSansSemiBold; font-weight: 900;">enty</b>
-                <b id="time" style="color: rgb(143, 148, 156); line-height: 5px; font-size: 12px; margin-top: 2px; margin-left: 6px; font-family: ggSansMed; font-weight: 400;">Today at 12:00 PM</b>
+                <b id="username" style="color: #e4e4e4; line-height: 5px; font-family: ggSansSemiBold; font-weight: 900;">enty</b>
+                <b id="date" style="color: rgb(143, 148, 156); line-height: 5px; font-size: 12px; margin-top: 2px; margin-left: 6px; font-family: ggSansMed; font-weight: 400;">Today at</b>
+                <b id="time" style="color: rgb(143, 148, 156); line-height: 5px; font-size: 12px; margin-top: 2px; margin-left: 3px; font-family: ggSansMed; font-weight: 400;">12:00 PM</b>
             </div>
             <p id="message" style="color: #caccce; line-height: 20px; margin-top: 8px; font-family: ggSansMed;">Sub to enty!</p>
             </div>
             </div>
             <div style="text-align: center;">
-                <p style="color: rgb(255,255,255); line-height: 20px;">1: Enter discord username (Ex: "enty")</p>
-                <p style="color: rgb(255,255,255); line-height: 20px;">2: Enter message (Ex: "hi")</p>
-                <p style="color: rgb(255,255,255); line-height: 20px;">3: Enter date and time (Ex: "Today at 12:00 PM" or "1/1/24 12:00 PM")</p>
-                <p style="color: rgb(255,255,255); line-height: 20px;">4: Press submit and change the profile picture by clicking on it</p>
-                <p style="color: rgb(255,255,255); line-height: 20px;">5: Screenshot the discord message and send it to your friends!</p>
+                <p style="color: rgb(255,255,255); line-height: 20px;">Now screenshot the discord message and send it to your friends, foes, whoever you'd like! The choice is yours!</p>
             </div>
     </main>
 	<script>
         function confirm() {
             document.getElementById("username").innerHTML = document.getElementById("usernamevalue").value;
             document.getElementById("message").innerHTML = document.getElementById("messagevalue").value;
+            document.getElementById("date").innerHTML = document.getElementById("datevalue").value;
             document.getElementById("time").innerHTML = document.getElementById("timevalue").value;
         }
         const fileInput = document.getElementById('fileInput');
@@ -101,6 +135,9 @@
 
     reader.readAsDataURL(file);
   });
+  function updateUsernameColor(color) {
+    document.getElementById("username").style.color = color;
+  }
     </script>
   </body>
 </html>
