@@ -1,0 +1,73 @@
+li, h1 {
+    font-family: Oswald;
+    font-weight: 500;
+    position: relative; /* Required for positioning the pseudo-element */
+    font-size: 24px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: black; /* Default color */
+    text-decoration: none; /* Remove default underline */
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: rgb(2, 112, 2) !important; /* Change color on hover */
+}
+
+.navbar-nav .nav-item .nav-link::after {
+    content: ""; /* Necessary for the pseudo-element */
+    position: absolute;
+    left: 50%; /* Start from the center */
+    bottom: -3px; /* Position below the text */
+    width: 0; /* Initial width */
+    height: 4px; /* Thickness of the underline */
+    background-color: rgb(2, 112, 2); /* Color of the underline */
+    transition: width 0.3s ease, left 0.3s ease; /* Smooth transition */
+}
+
+.navbar-nav .nav-item:hover .nav-link::after {
+    width: 100%; /* Full width on hover */
+    left: 0; /* Align to the left */
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 20px;
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+    font-weight: 400;
+}
+footer {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+footer a:link {
+    color: white;
+}
+footer a:hover {
+    color: rgb(197, 197, 197);
+}
+a:visited {
+    color: rgb(197, 197, 197);
+}
+.main {
+    color: white;
+    padding: 20px;
+    margin: 10px;
+}
+img {
+    object-fit: cover;
+}
