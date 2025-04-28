@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Preference Rating</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+    .result {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .score {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .feedback {
+      font-size: 14px;
+      color: #555;
+    }
+    .thinking {
+      text-align: center;
+      font-style: italic;
+      color: #0d6efd;
+    }
+    .college-info {
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+    .college-list {
+      text-align: left;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      display: none;
+    }
+    .college-card {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border-left: 4px solid;
+      background-color: white;
+    }
+    .tier-ivy {
+      border-left-color: #28a745;
+    }
+    .tier-elite {
+      border-left-color: #17a2b8;
+    }
+    .tier-high {
+      border-left-color: #fd7e14;
+    }
+    .tier-mid {
+      border-left-color: #6c757d;
+    }
+    .match-highlight {
+      border: 2px solid #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>College Preference Rating</h1>
+    <h6 style="text-align: center;">A little contraption made by Enty, don't take this completely seriously</h6>
+    <br>
+    <form id="eloForm">
+      <div class="mb-3">
+        <label for="academics" class="form-label" style="text-align: center;">Academics</label>
+        <textarea class="form-control" id="academics" placeholder="Describe your academic achievements..." required></textarea>
+        <div class="thinking d-none" id="thinking-academics">AI is thinking...</div>
+        <div class="feedback mt-2" id="feedback-academics"></div>
+      </div>
+      <div class="mb-3">
+        <label for="athletics" class="form-label" style="text-align: center;">Athletics</label>
+        <textarea class="form-control" id="athletics" placeholder="Describe your athletic achievements..." required></textarea>
+        <div class="thinking d-none" id="thinking-athletics">AI is thinking...</div>
+        <div class="feedback mt-2" id="feedback-athletics"></div>
+      </div>
+      <div class="mb-3">
+        <label for="competitions" class="form-label" style="text-align: center;">Competitions</label>
+        <textarea class="form-control" id="competitions" placeholder="Describe your competition experiences..." required></textarea>
+        <div class="thinking d-none" id="thinking-competitions">AI is thinking...</div>
+        <div class="feedback mt-2" id="feedback-competitions"></div>
+      </div>
+      <div class="mb-3">
+        <label for="leadership" class="form-label" style="text-align: center;">Leadership</label>
+        <textarea class="form-control" id="leadership" placeholder="Describe your leadership roles..." required></textarea>
+        <div class="thinking d-none" id="thinking-leadership">AI is thinking...</div>
+        <div class="feedback mt-2" id="feedback-leadership"></div>
+      </div>
+      <div class="mb-3">
+        <label for="communityService" class="form-label" style="text-align: center;">Community Service</label>
+        <textarea class="form-control" id="communityService" placeholder="Describe your community service activities..." required></textarea>
+        <div class="thinking d-none" id="thinking-communityService">AI is thinking...</div>
+        <div class="feedback mt-2" id="feedback-communityService"></div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+    <div class="result">
+      <h3>Your Score/Rating:</h3>
+      <p class="score" id="totalScore">0</p>
+    </div>
+    
+    <div class="college-info">
+      <button class="btn btn-outline-info w-100" id="viewColleges">View Matching Colleges</button>
+      <div class="college-list mt-3" id="collegeList">
+        <h4>College Match by Score Range</h4>
+        <p class="text-muted">Based on approximate competitive score ranges. Remember that college admissions consider many other factors!</p>
+        
+        <div class="college-card tier-ivy" id="tier-3000-3500">
+          <h5>3000-3500: Ivy League+ Competitive</h5>
+          <p>Harvard, Yale, Princeton, Stanford, MIT, Columbia, UPenn, Brown, Dartmouth, Cornell, Caltech, University of Chicago</p>
+        </div>
+        
+        <div class="college-card tier-elite" id="tier-2600-2999">
+          <h5>2600-2999: Elite Universities</h5>
+          <p>Duke, Johns Hopkins, Northwestern, Rice, UC Berkeley, UCLA, Carnegie Mellon, Vanderbilt, Washington University in St. Louis, University of Michigan-Ann Arbor, NYU, Georgetown</p>
+        </div>
+        
+        <div class="college-card tier-high" id="tier-2200-2599">
+          <h5>2200-2599: Highly Selective Universities</h5>
+          <p>University of Washington, Boston College, Emory, USC, University of Virginia, UNC Chapel Hill, University of Florida, Georgia Tech, UT Austin, University of Wisconsin-Madison, University of Illinois Urbana-Champaign</p>
+        </div>
+        
+        <div class="college-card tier-mid" id="tier-1800-2199">
+          <h5>1800-2199: Mid-to-High Selective Universities</h5>
+          <p>Ohio State, Purdue, Penn State, Michigan State, University of Minnesota, Virginia Tech, Texas A&M, University of Maryland, Florida State, University of Pittsburgh, Arizona State University</p>
+        </div>
+        
+        <div class="college-card" id="tier-below-1800">
+          <h5>Below 1800: Regional and State Universities</h5>
+          <p>Various regional state universities and liberal arts colleges with acceptance rates >50%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('eloForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Get user inputs
+      const academics = document.getElementById('academics').value;
+      const athletics = document.getElementById('athletics').value;
+      const competitions = document.getElementById('competitions').value;
+      const leadership = document.getElementById('leadership').value;
+      const communityService = document.getElementById('communityService').value;
+
+      // Prepare data for AI evaluation
+      const categories = [
+        { name: 'Academics', description: academics, feedbackId: 'feedback-academics', thinkingId: 'thinking-academics' },
+        { name: 'Athletics', description: athletics, feedbackId: 'feedback-athletics', thinkingId: 'thinking-athletics' },
+        { name: 'Competitions', description: competitions, feedbackId: 'feedback-competitions', thinkingId: 'thinking-competitions' },
+        { name: 'Leadership', description: leadership, feedbackId: 'feedback-leadership', thinkingId: 'thinking-leadership' },
+        { name: 'Community Service', description: communityService, feedbackId: 'feedback-communityService', thinkingId: 'thinking-communityService' },
+      ];
+
+      const scores = []; // Store scores for all categories
+
+      // Evaluate each category using Gemini API
+      for (const category of categories) {
+        const categoryScore = await evaluateCategory(category.name, category.description, category.thinkingId, category.feedbackId);
+        scores.push(categoryScore); // Add the score to the array
+        console.log(`Category: ${category.name}, Score: ${categoryScore}`); // Debug log
+      }
+
+      // Calculate the total Elo score correctly
+      const totalScore = scores.reduce((sum, score) => sum + score, 0); // Sum all scores
+      console.log(`Scores Array:`, scores); // Debug log
+      console.log(`Total Score: ${totalScore}`); // Debug log
+
+      // Display the total Elo score
+      document.getElementById('totalScore').textContent = `${totalScore} / 3500`;
+      
+      // Show the college match button after score is calculated
+      document.getElementById('viewColleges').style.display = 'block';
+    });
+
+    // Toggle college list visibility
+    document.getElementById('viewColleges').addEventListener('click', function() {
+      const collegeList = document.getElementById('collegeList');
+      if (collegeList.style.display === 'block') {
+        collegeList.style.display = 'none';
+        this.textContent = 'View Matching Colleges';
+      } else {
+        collegeList.style.display = 'block';
+        this.textContent = 'Hide College List';
+        
+        // Highlight matching tier based on score
+        highlightMatchingTier();
+      }
+    });
+
+    function highlightMatchingTier() {
+      // Remove any existing highlights
+      document.querySelectorAll('.college-card').forEach(card => {
+        card.classList.remove('match-highlight');
+      });
+      
+      // Get the current score
+      const scoreText = document.getElementById('totalScore').textContent;
+      const score = parseInt(scoreText.split('/')[0].trim());
+      
+      // Determine which tier to highlight
+      let tierId = '';
+      if (score >= 3000) {
+        tierId = 'tier-3000-3500';
+      } else if (score >= 2600) {
+        tierId = 'tier-2600-2999';
+      } else if (score >= 2200) {
+        tierId = 'tier-2200-2599';
+      } else if (score >= 1800) {
+        tierId = 'tier-1800-2199';
+      } else {
+        tierId = 'tier-below-1800';
+      }
+      
+      // Apply highlight
+      document.getElementById(tierId).classList.add('match-highlight');
+      
+      // Scroll to the highlighted tier
+      document.getElementById(tierId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    async function evaluateCategory(categoryName, description, thinkingId, feedbackId) {
+      try {
+        // Show "AI is thinking" indicator
+        const thinkingIndicator = document.getElementById(thinkingId);
+        thinkingIndicator.classList.remove('d-none');
+
+        // Replace 'YOUR_GEMINI_API_KEY' with your actual Gemini API key
+        const apiKey = 'AIzaSyBDDikmWp1XhhI2nzxhEszlrNYdYJkGS8s'; 
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        console.log(`Sending request to: ${url}`); // Debug log
+
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text: `You are an AI designed to evaluate a user's achievements in the category of ${categoryName}. Rate their experience out of 700 based on the depth, quality, and impact described. Provide ONLY the numeric score first, followed by a brief explanation.\n\nDescription:\n${description}`,
+                  },
+                ],
+              },
+            ],
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`API request failed with status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Validate the response structure
+        if (
+          !data ||
+          !data.candidates ||
+          !data.candidates[0] ||
+          !data.candidates[0].content ||
+          !data.candidates[0].content.parts ||
+          !data.candidates[0].content.parts[0] ||
+          !data.candidates[0].content.parts[0].text
+        ) {
+          console.error('Unexpected response structure:', data);
+          throw new Error('Invalid response from Gemini API');
+        }
+
+        const aiResponse = data.candidates[0].content.parts[0].text.trim();
+        console.log(`Raw AI Response for ${categoryName}:`, aiResponse); // Debug log
+
+        // Extract score more carefully
+        const scoreRegex = /^\D*(\d{1,3})\D*$/;
+        const firstLine = aiResponse.split('\n')[0].trim();
+        const match = firstLine.match(scoreRegex);
+        
+        let score;
+        if (match && match[1]) {
+          score = parseInt(match[1], 10);
+        } else {
+          // If regex fails, try a more aggressive approach
+          const numberOnly = firstLine.replace(/\D/g, '');
+          // If the extracted number is longer than 3 digits, it might have captured "700"
+          if (numberOnly.length > 3) {
+            // Take only the first 3 digits at most
+            score = parseInt(numberOnly.substring(0, 3), 10);
+          } else {
+            score = parseInt(numberOnly, 10);
+          }
+        }
+        
+        // Validate the score
+        if (isNaN(score)) {
+          console.error(`Invalid score for ${categoryName}: "${firstLine}"`);
+          score = 0; // Default to 0 if parsing fails
+        }
+        
+        // Ensure the score is within bounds
+        score = Math.max(0, Math.min(700, score));
+
+        // Extract feedback (everything after the first line)
+        const feedback = aiResponse.split('\n').slice(1).join('\n').trim();
+
+        // Hide "AI is thinking" indicator
+        thinkingIndicator.classList.add('d-none');
+
+        // Update feedback and score
+        const feedbackElement = document.getElementById(feedbackId);
+        feedbackElement.innerHTML = `<strong>Score:</strong> ${score} / 700<br><strong>Feedback:</strong> ${feedback}`;
+
+        return score;
+      } catch (error) {
+        console.error(`Error evaluating category ${categoryName}:`, error);
+
+        // Hide "AI is thinking" indicator
+        const thinkingIndicator = document.getElementById(thinkingId);
+        thinkingIndicator.classList.add('d-none');
+
+        // Update feedback with error message
+        const feedbackElement = document.getElementById(feedbackId);
+        feedbackElement.textContent = 'Error: Unable to evaluate this category.';
+
+        return 0; // Default score in case of failure
+      }
+    }
+  </script>
+</body>
+</html>
