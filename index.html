@@ -1,91 +1,499 @@
 <!DOCTYPE html>
-<html>
-<title>Enty | Home</title>
-<link rel="icon" type="image/x-icon" href="enty.png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>entyprojects | Home</title>
+    
+    <link rel="stylesheet" href="styles.css">
 
-<style> 
-
-    #box {
-      border-radius: 15px;
-      background: #c86edf;
-      padding: 20px; 
-      width: 300px;
-      height: 100%;
-      margin: 100px;
-    } 
-
-    p, h1 {
-        text-align: center;
-    }
-
-
-</style>
-
+    <link rel="icon" type="image/x-icon" href="enty.png">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="nav-brand gradient-text">entyprojects</div>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-links desktop-nav">
+                    <button class="nav-link" onclick="scrollToSection('#home')">Home</button>
+                    <button class="nav-link" onclick="scrollToSection('#about')">About</button>
+                    <button class="nav-link" onclick="scrollToSection('#interests')">Interests</button>
+                    <button class="nav-link" onclick="scrollToSection('#achievements')">Achievements</button>
+                    <button class="nav-link" onclick="scrollToSection('#projects')">Projects</button>
+                    <button class="nav-link" onclick="scrollToSection('#works')">Works</button>
+                </div>
 
-<!-- Sidebar -->
-<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-  <a href="https://www.youtube.com/channel/UC-0hejafjtYkCprTRt61w0A" class="w3-bar-item w3-button">My Youtube Channel</a>
-  <a href="https://scratch.mit.edu/users/Entity9993/" class="w3-bar-item w3-button">My Scratch Profile</a>
-  <a href="https://entyxd.itch.io/" class="w3-bar-item w3-button">My itch.io Account</a>
-  <a href="https://entyx.github.io/entyprojects/entyland/entyland.html" class="w3-bar-item w3-button">Entyland</a>
-  <a href="https://jcteam.pages.dev/" class="w3-bar-item w3-button">JCTeam Official Website</a>
-  <a href="https://pencilpedia.fandom.com/wiki/Pencilpedia" class="w3-bar-item w3-button">Pencilpedia</a>
-    <a href="https://entyx.github.io/entyprojects/dmc/discordmessagemaker" class="w3-bar-item w3-button">Discord Message Maker</a>
-<a href="https://www.chess.com/member/entyx1" class="w3-bar-item w3-button">My Chess.com account</a>
-</div>
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="close-icon hidden"></i>
+                </button>
+            </div>
+        </div>
 
-<!-- Page Content -->
-<div class="w3-deep-orange">
-  <button class="w3-button w3-deep-orange w3-xlarge" onclick="w3_open()">☰</button>
-  <div style="text-align: center;">
-    <img src="enty.png" alt="EntyPFP">
-    </div>
-  <div class="w3-container">
-    <h1 style="text-align: center">EntyXD</h1>
-  </div>
-</div>
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav hidden" id="mobileNav">
+            <button class="mobile-nav-link" onclick="scrollToSection('#home')">Home</button>
+            <button class="mobile-nav-link" onclick="scrollToSection('#about')">About</button>
+            <button class="mobile-nav-link" onclick="scrollToSection('#interests')">Interests</button>
+            <button class="mobile-nav-link" onclick="scrollToSection('#achievements')">Achievements</button>
+            <button class="mobile-nav-link" onclick="scrollToSection('#works')">Works</button>
+        </div>
+    </nav>
 
-<p>Hi! I'm Shaurya Sahdev, a 9th grader, or otherwise known as Enty / EntyXD!</p>
-<hr style="width: 4px;">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text animate-fade-in">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="gradient-text">Enty</span>
+                </h1>
+                <p class="hero-subtitle animate-fade-in delay-200">
+                    Or how some might know me, Shaurya Sahdev. I am a 10th grade student who is very passionate about coding little side projects such as video games and tools to help people!
+                </p>
+                <div class="hero-buttons animate-fade-in delay-400">
+                    <button class="btn btn-primary" onclick="scrollToSection('#works')">View My Work</button>
+                </div>
+                <div class="hero-social animate-fade-in delay-600">
+                    <button class="social-btn" onclick="window.location.href='https://github.com/entyX';"><i data-lucide="github"></i></button>
+                    <button class="social-btn" onclick="window.location.href='https://www.linkedin.com/in/shaurya-sahdev-7723a5371/';"><i data-lucide="linkedin"></i></button>
+                    <button class="social-btn" onclick="window.location.href='https://www.youtube.com/@EntyXD';"><i data-lucide="youtube"></i></button>
+                </div>
+            </div>
+        </div>
+        <button class="scroll-down" onclick="scrollToSection('#about')">
+            <i data-lucide="arrow-down" class="animate-bounce-soft"></i>
+        </button>
+    </section>
 
-<h1><b>Interests</b></h1>
-<p>I like to play video games! Some of them include Minecraft, Terraria, Chess,  and Geometry Dash.</p>
-<p>Another one of my interests is coding. I have made a bunch of games on Scratch, and a few with Javascript, like Entyland!</p>
-<p>For some reason, I also tend to write stories about pencils... weird right? In the top - left is a link to Pencilpedia, a database about pencils written by my friend Monke!</p>
-<p>Outdoors, I enjoy biking, swimming, spending time with my friends, and playing with Legos!</p>
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">About Me</h2>
+                <p class="section-subtitle">Get to know more about who I am and what drives me forward</p>
+            </div>
 
-<h1><b>Current Project</b></h1>
-<p>Working on a Python survival rpg game called "A Limited World" (its at v0.11.4 rn)</p>
+            <div class="about-grid">
+                <div class="about-text animate-fade-in-left">
+                    <p>Hi! I'm a sophomore at North Creek High School in Washington State with a deep passion for video games
+                    and creative problem-solving. I love exploring how coding can help with problems
+                    in every day life and create meaningful digital tools to help out my community.</p>
+                    
+                    <p>When I'm not coding, you'll find me swimming, hiking, biking, skiing, playing cricket, or even just at home playing video games like Minecraft with my friends!</p>
+                    
+                    <p>I'm always eager to collaborate with people who share the same interests that I have!</p>
+                </div>
 
-<hr style="width: 4px;">
+                <div class="about-stats animate-fade-in-right">
+                    <div class="stat-card animate-scale-in delay-100">
+                        <i data-lucide="user" class="stat-icon"></i>
+                        <h3 class="stat-label">Age</h3>
+                        <p class="stat-value">15 years old</p>
+                    </div>
+                    <div class="stat-card animate-scale-in delay-200">
+                        <i data-lucide="map-pin" class="stat-icon"></i>
+                        <h3 class="stat-label">Location</h3>
+                        <p class="stat-value">Washington, USA</p>
+                    </div>
+                    <div class="stat-card animate-scale-in delay-300">
+                        <i data-lucide="school" class="stat-icon"></i>
+                        <h3 class="stat-label">School</h3>
+                        <p class="stat-value">North Creek High School</p>
+                    </div>
+                    <div class="stat-card animate-scale-in delay-400">
+                        <i data-lucide="heart" class="stat-icon"></i>
+                        <h3 class="stat-label">Passion</h3>
+                        <p class="stat-value">Video Game Development, Web Design, & AI/ML</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h1><b>Achievements</b></h1>
-<p>I haven't made much achievements yet, but here is a few:</p>
-<p>- Making Entyland (not much progress :P)</p>
-<p>- Achieving 60+ followers on Scratch (Entity9993) </p>
-<p>- Getting 400 views on a Scratch project</p>
-<p>- Starting a Youtube channel (85+ subs yay)</p>
-<p>- Organizing a school business website (for fun) (it's called JCTeam)</p>
-<p>- Almost straight A's student :D (high school time)</p>
-<p>- Actually playing good in chess (my elo is in progress)</p>
+    <!-- Interests Section -->
+    <section id="interests" class="section-padding bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">My Interests</h2>
+                <p class="section-subtitle">The things that inspire and motivate me every day</p>
+            </div>
 
-<hr style="width: 4px;">
+            <div class="interests-grid">
+                <div class="interest-card animate-fade-in delay-100">
+                    <div class="interest-icon purple-300">
+                        <i data-lucide="crown"></i>
+                    </div>
+                    <h3 class="interest-title">Chess</h3>
+                    <p class="interest-description">I love playing chess every day as a way to sharpen my mind. I am currently rated 1400 on Lichess!</p>
+                </div>
+                
+                <div class="interest-card animate-fade-in delay-200">
+                    <div class="interest-icon purple-300">
+                        <i data-lucide="gamepad-2"></i>
+                    </div>
+                    <h3 class="interest-title">Video Games</h3>
+                    <p class="interest-description">I like to play games such as Minecraft and Terraria with my friends to just relax after a tiring day.</p>
+                </div>
 
-<p><b>Yup...that's basically all! If you click the hamburger icon on the top left of the website, you will find some cool links to my creations!</b></p>
+                <div class="interest-card animate-fade-in delay-300">
+                    <div class="interest-icon purple-300">
+                        <i data-lucide="code"></i>
+                    </div>
+                    <h3 class="interest-title">Coding</h3>
+                    <p class="interest-description">Some of the languages I know are HTML, CSS, JS, Python, and Bootstrap!</p>
+                </div>
 
-<script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
+                <div class="interest-card animate-fade-in delay-400">
+                    <div class="interest-icon purple-300">
+                        <i data-lucide="mountain"></i>
+                    </div>
+                    <h3 class="interest-title">Hiking</h3>
+                    <p class="interest-description">I am a very adventurous person that enjoys nature and prefers a physical challenge!</p>
+                </div>
 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
-     
+                <div class="interest-card animate-fade-in delay-500">
+                    <div class="interest-icon purple-300">
+                        <i data-lucide="swords"></i>
+                    </div>
+                    <h3 class="interest-title">Game Development</h3>
+                    <p class="interest-description">Because of my deep passion for playing video games, I also make my own little games using GameMaker2!</p>
+                </div>
+
+                <div class="interest-card animate-fade-in delay-600">
+                    <div class="interest-icon purple-300">
+                        <i data-lucide="pencil-line"></i>
+                    </div>
+                    <h3 class="interest-title">Drawing</h3>
+                    <p class="interest-description">Sometimes, I like to sketch stuff to pass time as a way to express my creative side.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Achievements</h2>
+                <p class="section-subtitle">Milestones and recognition that mark my journey</p>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card animate-fade-in delay-100">
+                    <div class="achievement-icon">
+                        <i data-lucide="trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">TSA Nationals Finalist</h3>
+                        <p class="achievement-description">Led a team of three that created a game which placed 10th nationally in Video Game Design for TSA</p>
+                        <span class="achievement-date">June 2025</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card animate-fade-in delay-200">
+                    <div class="achievement-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Future Problem Solving GIPS - 16th Place</h3>
+                        <p class="achievement-description">Placed 16th out of 40 teams at the FPS GIPS State Conference.</p>
+                        <span class="achievement-date">March 2025</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card animate-fade-in delay-300">
+                    <div class="achievement-icon">
+                        <i data-lucide="youtube"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">YouTube</h3>
+                        <p class="achievement-description">Managed to get 117 subs from posting my gaming clips over the span of two years. Sub to me: EntyXD.</p>
+                        <span class="achievement-date">2023 - 2025</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card animate-fade-in delay-400">
+                    <div class="achievement-icon">
+                        <i data-lucide="square-dashed-mouse-pointer"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Game Development</h3>
+                        <p class="achievement-description">Published my TSA 2024-2025 game to the public after the season ended and got over 200 plays.</p>
+                        <span class="achievement-date">2024 - 2025</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card animate-fade-in delay-500">
+                    <div class="achievement-icon">
+                        <i data-lucide="medal"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">National Junior Honor Society Member</h3>
+                        <p class="achievement-description">Inducted into NJHS for academic excellence (3.9 GPA) and community service.</p>
+                        <span class="achievement-date">April 2024</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card animate-fade-in delay-600">
+                    <div class="achievement-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Chess Tournaments</h3>
+                        <p class="achievement-description">Placed 9th out of 30 teams in Mukilteo Mini-Teams Chess Tournament and 9th out of 20 individuals in Tacoma Elementary Chess Championship.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievements-stats">
+                <div class="stat-item">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-text">Awards Won</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">3.9</div>
+                    <div class="stat-text">GPA Average</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-text">Projects Built</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Works Section -->
+    <section id="works" class="section-padding bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">My Works</h2>
+                <p class="section-subtitle">A collection of projects that showcase my skills and creativity</p>
+            </div>
+            <div class="works-grid">
+                <div class="work-card featured animate-fade-in delay-100">
+                    <div class="work-image">
+                        <div class="work-placeholder">⚔️</div>
+                        <div class="work-overlay">
+                            <button class="overlay-btn"><i data-lucide="eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <div class="work-header">
+                            <span class="work-category">Video Game Development</span>
+                            <span class="work-date"><i data-lucide="calendar"></i> May 2025</span>
+                        </div>
+                        <h3 class="work-title">Dungeon Nobles</h3>
+                        <p class="work-description">A two-player collaborative, teamwork-reliant, local multiplayer puzzle game set in a 16-bit medieval dungeon</p>
+                        <div class="work-tech">
+                            <span class="tech-tag">GameMaker2</span>
+                            <span class="tech-tag">Javascript</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="work-metrics">
+                            <span>👁️ 222</span>
+                            <span>⭐ 8</span>
+                        </div>
+                        <div class="work-actions">
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://gx.games/games/4iwn4g/dungeon-nobles-prerelease-/';"><i data-lucide="external-link"></i> Live</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card animate-fade-in delay-200">
+                    <div class="work-image">
+                        <div class="work-placeholder">🏘️</div>
+                        <div class="work-overlay">
+                            <button class="overlay-btn"><i data-lucide="eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <div class="work-header">
+                            <span class="work-category">Web Development</span>
+                            <span class="work-date"><i data-lucide="calendar"></i> January 2023</span>
+                        </div>
+                        <h3 class="work-title">Entyland (BETA)</h3>
+                        <p class="work-description">A tiny town simulator game playable in your browser where you manage your population and create a sustainable empire.</p>
+                        <div class="work-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                        <div class="work-metrics">
+                            <span>👁️ 18</span>
+                            <span>⭐ 5</span>
+                        </div>
+                        <div class="work-actions">
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://github.com/entyX/entyprojects/tree/main/entyland';"><i data-lucide="github"></i> Code</button>
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://entyx.github.io/entyprojects/entyland/entyland.html';"><i data-lucide="external-link"></i> Live</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card featured animate-fade-in delay-300">
+                    <div class="work-image">
+                        <div class="work-placeholder">🪓</div>
+                        <div class="work-overlay">
+                            <button class="overlay-btn"><i data-lucide="eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <div class="work-header">
+                            <span class="work-category">Video Game Development</span>
+                            <span class="work-date"><i data-lucide="calendar"></i> August 2024</span>
+                        </div>
+                        <h3 class="work-title">A Limited World (v0.12)</h3>
+                        <p class="work-description">A top-down survival game developed using Python. Still in BETA testing.</p>
+                        <div class="work-tech">
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="work-metrics">
+                            <span>👁️ 8</span>
+                            <span>⭐ 3</span>
+                        </div>
+                        <div class="work-actions">
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://github.com/entyX/entyprojects/blob/main/alwbrowser.html';"><i data-lucide="github"></i> Code</button>
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://entyx.github.io/entyprojects/alwbrowser';"><i data-lucide="external-link"></i> Live</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card animate-fade-in delay-400">
+                    <div class="work-image">
+                        <div class="work-placeholder">💻</div>
+                        <div class="work-overlay">
+                            <button class="overlay-btn"><i data-lucide="eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <div class="work-header">
+                            <span class="work-category">Web Design</span>
+                            <span class="work-date"><i data-lucide="calendar"></i> December 2022</span>
+                        </div>
+                        <h3 class="work-title">Portfolio Website</h3>
+                        <p class="work-description">Responsive portfolio website with smooth animations, dark mode, and optimized performance.</p>
+                        <div class="work-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                        <div class="work-metrics">
+                            <span>👁️ 30</span>
+                            <span>⭐ 10</span>
+                        </div>
+                        <div class="work-actions">
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://github.com/entyX/entyprojects/tree/main';"><i data-lucide="github"></i> Code</button>
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://entyx.github.io/entyprojects';"><i data-lucide="external-link"></i> Live</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card animate-fade-in delay-500">
+                    <div class="work-image">
+                        <div class="work-placeholder">🎨</div>
+                        <div class="work-overlay">
+                            <button class="overlay-btn"><i data-lucide="eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <div class="work-header">
+                            <span class="work-category">Web Development</span>
+                            <span class="work-date"><i data-lucide="calendar"></i> July 2024</span>
+                        </div>
+                        <h3 class="work-title">Discord Message Maker v3</h3>
+                        <p class="work-description">Ever wanted to fake a screenshot or create a message that never existed? This tool lets you do just that!</p>
+                        <div class="work-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="work-metrics">
+                            <span>👁️ 25</span>
+                            <span>⭐ 10</span>
+                        </div>
+                        <div class="work-actions">
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://github.com/entyX/entyprojects/tree/main/dmc';"><i data-lucide="github"></i> Code</button>
+                            <button class="btn btn-outline-sm flex-1" onclick="window.location.href='https://entyx.github.io/entyprojects/dmc/discordmessagemaker';"><i data-lucide="external-link"></i> Live</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card featured animate-fade-in delay-600">
+                    <div class="work-image">
+                        <div class="work-placeholder">⏳</div>
+                        <div class="work-overlay">
+                            <button class="overlay-btn"><i data-lucide="eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <div class="work-header">
+                            <span class="work-category">Software Development</span>
+                            <span class="work-date"><i data-lucide="calendar"></i> May 2025</span>
+                        </div>
+                        <h3 class="work-title">Tymline</h3>
+                        <p class="work-description">Description will be released later...</p>
+                        <div class="work-tech">
+                            <span class="tech-tag">HTML & CSS</span>
+                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="more-tech">+1</span>
+                        </div>
+                        <div class="work-metrics">
+                            <span>👁️ TBD</span>
+                            <span>⭐ TBD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="gradient-text">Shaurya Sahdev</h3>
+                    <p>High school student passionate about web development, video game design, AI/ML, and creating digital experiences that make a difference.</p>
+                    <button class="social-btn" onclick="window.location.href='https://github.com/entyX';"><i data-lucide="github"></i></button>
+                    <button class="social-btn" onclick="window.location.href='https://www.linkedin.com/in/shaurya-sahdev-7723a5371/';"><i data-lucide="linkedin"></i></button>
+                    <button class="social-btn" onclick="window.location.href='https://www.youtube.com/@EntyXD';"><i data-lucide="youtube"></i></button>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><button onclick="scrollToSection('#home')">Home</button></li>
+                        <li><button onclick="scrollToSection('#about')">About</button></li>
+                        <li><button onclick="scrollToSection('#interests')">Interests</button></li>
+                        <li><button onclick="scrollToSection('#achievements')">Achievements</button></li>
+                        <li><button onclick="scrollToSection('#works')">Works</button></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="contact-info">
+                        <p>📧 shaurya.sahdev7@gmail.com</p>
+                        <p>📍 Washington, USA</p>
+                        <p>🎓 North Creek High School</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Shaurya Sahdev. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
